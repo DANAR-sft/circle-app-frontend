@@ -98,7 +98,7 @@ export function PostReply({
         <img
           src={
             photo_profile
-              ? (photo_profile?.startsWith('http') ? photo_profile : `http://localhost:4000/uploads/${photo_profile}`)
+              ? (photo_profile?.startsWith('http') ? photo_profile : (photo_profile?.startsWith('http') ? photo_profile : `http://localhost:4000/uploads/${photo_profile}`))
               : "https://ui-avatars.com/api/?name=" + fullname
           }
           alt="profile"

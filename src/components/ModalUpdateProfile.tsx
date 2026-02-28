@@ -35,7 +35,7 @@ export function ModalUpdateProfile({
 
       setPhotoPreview(
         profileState.avatar
-          ? (profileState.avatar?.startsWith('http') ? profileState.avatar : `http://localhost:4000/uploads/${profileState.avatar}`)
+          ? (profileState.avatar?.startsWith('http') ? profileState.avatar : (profileState.avatar?.startsWith('http') ? profileState.avatar : `http://localhost:4000/uploads/${profileState.avatar}`))
           : "https://ui-avatars.com/api/?name=" + profileState.fullname,
       );
     }
@@ -115,7 +115,7 @@ export function ModalUpdateProfile({
               className="h-32"
               style={{
                 backgroundImage: profileState.avatar
-                  ? `url(${profileState.avatar?.startsWith('http') ? profileState.avatar : `http://localhost:4000/uploads/${profileState.avatar}`})`
+                  ? `url(${profileState.avatar?.startsWith('http') ? profileState.avatar : (profileState.avatar?.startsWith('http') ? profileState.avatar : `http://localhost:4000/uploads/${profileState.avatar}`)})`
                   : undefined,
                 backgroundSize: "cover",
                 backgroundPosition: "center",

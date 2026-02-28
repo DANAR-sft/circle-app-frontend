@@ -95,7 +95,7 @@ export function SearchInput() {
                       <img
                         src={
                           profileItem.photo_profile
-                            ? (profileItem.photo_profile?.startsWith('http') ? profileItem.photo_profile : `http://localhost:4000/uploads/${profileItem.photo_profile}`)
+                            ? (profileItem.photo_profile?.startsWith('http') ? profileItem.photo_profile : (profileItem.photo_profile?.startsWith('http') ? profileItem.photo_profile : `http://localhost:4000/uploads/${profileItem.photo_profile}`))
                             : "https://ui-avatars.com/api/?name=" +
                               profileItem?.fullname
                         }

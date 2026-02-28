@@ -95,7 +95,7 @@ export function ModalPostThread({
             <img
               src={
                 avatar
-                  ? (avatar?.startsWith('http') ? avatar : `http://localhost:4000/uploads/${avatar}`)
+                  ? (avatar?.startsWith('http') ? avatar : (avatar?.startsWith('http') ? avatar : `http://localhost:4000/uploads/${avatar}`))
                   : "https://ui-avatars.com/api/?name=" + name
               }
               alt={name}

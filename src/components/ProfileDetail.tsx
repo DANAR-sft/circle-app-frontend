@@ -133,7 +133,7 @@ export function ProfileDetail() {
           className="h-48 bg-linear-to-r from-yellow-200 via-green-200 to-yellow-300"
           style={{
             backgroundImage: profileState.photo_profile
-              ? `url(${profileState.photo_profile?.startsWith('http') ? profileState.photo_profile : `http://localhost:4000/uploads/${profileState.photo_profile}`})`
+              ? `url(${profileState.photo_profile?.startsWith('http') ? profileState.photo_profile : (profileState.photo_profile?.startsWith('http') ? profileState.photo_profile : `http://localhost:4000/uploads/${profileState.photo_profile}`)})`
               : undefined,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -146,7 +146,7 @@ export function ProfileDetail() {
             <img
               src={
                 profileState.photo_profile
-                  ? (profileState.photo_profile?.startsWith('http') ? profileState.photo_profile : `http://localhost:4000/uploads/${profileState.photo_profile}`)
+                  ? (profileState.photo_profile?.startsWith('http') ? profileState.photo_profile : (profileState.photo_profile?.startsWith('http') ? profileState.photo_profile : `http://localhost:4000/uploads/${profileState.photo_profile}`))
                   : "https://ui-avatars.com/api/?name=" +
                     (profileState.fullname || "User")
               }

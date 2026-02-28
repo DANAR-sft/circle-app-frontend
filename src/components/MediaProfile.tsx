@@ -40,7 +40,7 @@ export function MediaProfile({ image }: IMediaProfile) {
               {(showAllImages ? image : image.slice(0, 9)).map((img, index) => (
                 <div key={index} className="relative aspect-square">
                   <img
-                    src={(img?.startsWith('http') ? img : `http://localhost:4000/uploads/${img}`)}
+                    src={(img?.startsWith('http') ? img : (img?.startsWith('http') ? img : `http://localhost:4000/uploads/${img}`))}
                     alt={`Thread content ${index + 1}`}
                     className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
                     onClick={() => openZoom(img, index)}
@@ -100,7 +100,7 @@ export function MediaProfile({ image }: IMediaProfile) {
 
             {/* Image */}
             <img
-              src={(zoomImage?.startsWith('http') ? zoomImage : `http://localhost:4000/uploads/${zoomImage}`)}
+              src={(zoomImage?.startsWith('http') ? zoomImage : (zoomImage?.startsWith('http') ? zoomImage : `http://localhost:4000/uploads/${zoomImage}`))}
               alt="Zoomed content"
               className="max-w-[90vw] max-h-[90vh] object-contain"
               onClick={(e) => e.stopPropagation()}

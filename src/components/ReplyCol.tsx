@@ -17,7 +17,7 @@ export function ReplyCol({ content, image, user, createdAt }: any) {
       <img
         src={
           user?.photo_profile
-            ? (user.photo_profile?.startsWith('http') ? user.photo_profile : `http://localhost:4000/uploads/${user.photo_profile}`)
+            ? (user.photo_profile?.startsWith('http') ? user.photo_profile : (user.photo_profile?.startsWith('http') ? user.photo_profile : `http://localhost:4000/uploads/${user.photo_profile}`))
             : `https://ui-avatars.com/api/?name=${user?.fullname}`
         }
         alt={user?.fullname}
@@ -50,7 +50,7 @@ export function ReplyCol({ content, image, user, createdAt }: any) {
         {/* Image (if any) */}
         {image && (
           <img
-            src={(image?.startsWith('http') ? image : `http://localhost:4000/uploads/${image}`)}
+            src={(image?.startsWith('http') ? image : (image?.startsWith('http') ? image : `http://localhost:4000/uploads/${image}`))}
             alt="Reply image"
             className="rounded-lg max-w-full max-h-60 object-cover mb-2"
           />

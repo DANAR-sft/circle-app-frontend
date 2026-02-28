@@ -79,7 +79,7 @@ export const ThreadSide = memo(function ThreadSide({
         <img
           src={
             user.photo_profile
-              ? (user.photo_profile?.startsWith('http') ? user.photo_profile : `http://localhost:4000/uploads/${user.photo_profile}`)
+              ? (user.photo_profile?.startsWith('http') ? user.photo_profile : (user.photo_profile?.startsWith('http') ? user.photo_profile : `http://localhost:4000/uploads/${user.photo_profile}`))
               : "https://ui-avatars.com/api/?name=" + user.fullname
           }
           alt={user.fullname}
@@ -115,7 +115,7 @@ export const ThreadSide = memo(function ThreadSide({
                 onClick={() => openZoom(image[0], 0)}
               >
                 <img
-                  src={(image[0]?.startsWith('http') ? image[0] : `http://localhost:4000/uploads/${image[0]}`)}
+                  src={(image[0]?.startsWith('http') ? image[0] : (image[0]?.startsWith('http') ? image[0] : `http://localhost:4000/uploads/${image[0]}`))}
                   alt="Thread content"
                   className="w-full max-h-[512px] object-cover hover:opacity-90 transition-opacity"
                 />
@@ -127,7 +127,7 @@ export const ThreadSide = memo(function ThreadSide({
                 {image.map((img, index) => (
                   <img
                     key={index}
-                    src={(img?.startsWith('http') ? img : `http://localhost:4000/uploads/${img}`)}
+                    src={(img?.startsWith('http') ? img : (img?.startsWith('http') ? img : `http://localhost:4000/uploads/${img}`))}
                     alt={`Thread content ${index + 1}`}
                     className="w-full h-72 object-cover cursor-pointer hover:opacity-90 transition-opacity"
                     onClick={() => openZoom(img, index)}
@@ -139,20 +139,20 @@ export const ThreadSide = memo(function ThreadSide({
             {image.length === 3 && (
               <div className="grid grid-cols-2 gap-0.5 rounded-2xl overflow-hidden border border-gray-300 h-72">
                 <img
-                  src={(image[0]?.startsWith('http') ? image[0] : `http://localhost:4000/uploads/${image[0]}`)}
+                  src={(image[0]?.startsWith('http') ? image[0] : (image[0]?.startsWith('http') ? image[0] : `http://localhost:4000/uploads/${image[0]}`))}
                   alt="Thread content 1"
                   className="w-full h-full object-cover row-span-2 cursor-pointer hover:opacity-90 transition-opacity"
                   onClick={() => openZoom(image[0], 0)}
                 />
                 <div className="flex flex-col gap-0.5">
                   <img
-                    src={(image[1]?.startsWith('http') ? image[1] : `http://localhost:4000/uploads/${image[1]}`)}
+                    src={(image[1]?.startsWith('http') ? image[1] : (image[1]?.startsWith('http') ? image[1] : `http://localhost:4000/uploads/${image[1]}`))}
                     alt="Thread content 2"
                     className="w-full h-36 object-cover cursor-pointer hover:opacity-90 transition-opacity"
                     onClick={() => openZoom(image[1], 1)}
                   />
                   <img
-                    src={(image[2]?.startsWith('http') ? image[2] : `http://localhost:4000/uploads/${image[2]}`)}
+                    src={(image[2]?.startsWith('http') ? image[2] : (image[2]?.startsWith('http') ? image[2] : `http://localhost:4000/uploads/${image[2]}`))}
                     alt="Thread content 3"
                     className="w-full h-36 object-cover cursor-pointer hover:opacity-90 transition-opacity"
                     onClick={() => openZoom(image[2], 2)}
@@ -168,7 +168,7 @@ export const ThreadSide = memo(function ThreadSide({
                     (img, index) => (
                       <div key={index} className="relative">
                         <img
-                          src={(img?.startsWith('http') ? img : `http://localhost:4000/uploads/${img}`)}
+                          src={(img?.startsWith('http') ? img : (img?.startsWith('http') ? img : `http://localhost:4000/uploads/${img}`))}
                           alt={`Thread content ${index + 1}`}
                           className="w-full h-36 object-cover cursor-pointer hover:opacity-90 transition-opacity"
                           onClick={() => openZoom(img, index)}
@@ -228,7 +228,7 @@ export const ThreadSide = memo(function ThreadSide({
 
             {/* Image */}
             <img
-              src={(zoomImage?.startsWith('http') ? zoomImage : `http://localhost:4000/uploads/${zoomImage}`)}
+              src={(zoomImage?.startsWith('http') ? zoomImage : (zoomImage?.startsWith('http') ? zoomImage : `http://localhost:4000/uploads/${zoomImage}`))}
               alt="Zoomed content"
               className="max-w-[90vw] max-h-[90vh] object-contain"
               onClick={(e) => e.stopPropagation()}

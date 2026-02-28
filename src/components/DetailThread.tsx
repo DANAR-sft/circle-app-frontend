@@ -26,7 +26,7 @@ export function DetailThread({ thread }: { thread: IThreadByIdWithImgProps }) {
         <img
           src={
             thread.user.photo_profile
-              ? (thread.user.photo_profile?.startsWith('http') ? thread.user.photo_profile : `http://localhost:4000/uploads/${thread.user.photo_profile}`)
+              ? (thread.user.photo_profile?.startsWith('http') ? thread.user.photo_profile : (thread.user.photo_profile?.startsWith('http') ? thread.user.photo_profile : `http://localhost:4000/uploads/${thread.user.photo_profile}`))
               : "https://ui-avatars.com/api/?name=" + thread.user.fullname
           }
           alt={thread.user.fullname}
@@ -61,7 +61,7 @@ export function DetailThread({ thread }: { thread: IThreadByIdWithImgProps }) {
           {imagesToShow?.map((img, index) => (
             <div key={index} className="relative">
               <img
-                src={(img?.startsWith('http') ? img : `http://localhost:4000/uploads/${img}`)}
+                src={(img?.startsWith('http') ? img : (img?.startsWith('http') ? img : `http://localhost:4000/uploads/${img}`))}
                 alt={`Thread image ${index + 1}`}
                 className="w-full rounded-lg object-cover max-h-80"
               />

@@ -91,7 +91,7 @@ export function ProfileSideBar() {
                   <img
                     src={
                       profile?.avatar
-                        ? (profile.avatar?.startsWith('http') ? profile.avatar : `http://localhost:4000/uploads/${profile.avatar}`)
+                        ? (profile.avatar?.startsWith('http') ? profile.avatar : (profile.avatar?.startsWith('http') ? profile.avatar : `http://localhost:4000/uploads/${profile.avatar}`))
                         : "https://ui-avatars.com/api/?name=" +
                           (profile?.name || "User")
                     }
@@ -162,7 +162,7 @@ export function ProfileSideBar() {
                               <img
                                 src={
                                   user.photo_profile
-                                    ? (user.photo_profile?.startsWith('http') ? user.photo_profile : `http://localhost:4000/uploads/${user.photo_profile}`)
+                                    ? (user.photo_profile?.startsWith('http') ? user.photo_profile : (user.photo_profile?.startsWith('http') ? user.photo_profile : `http://localhost:4000/uploads/${user.photo_profile}`))
                                     : "https://ui-avatars.com/api/?name=" +
                                       (user.fullname || "User")
                                 }

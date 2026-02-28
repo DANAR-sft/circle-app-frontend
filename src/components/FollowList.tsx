@@ -99,7 +99,7 @@ export function FollowList({ isActive }: IFollowListProps) {
                   <img
                     src={
                       item.follower.photo_profile
-                        ? (item.follower.photo_profile?.startsWith('http') ? item.follower.photo_profile : `http://localhost:4000/uploads/${item.follower.photo_profile}`)
+                        ? (item.follower.photo_profile?.startsWith('http') ? item.follower.photo_profile : (item.follower.photo_profile?.startsWith('http') ? item.follower.photo_profile : `http://localhost:4000/uploads/${item.follower.photo_profile}`))
                         : "https://ui-avatars.com/api/?name=" +
                           item.follower.fullname
                     }
@@ -161,7 +161,7 @@ export function FollowList({ isActive }: IFollowListProps) {
                   <img
                     src={
                       item.following.photo_profile
-                        ? (item.following.photo_profile?.startsWith('http') ? item.following.photo_profile : `http://localhost:4000/uploads/${item.following.photo_profile}`)
+                        ? (item.following.photo_profile?.startsWith('http') ? item.following.photo_profile : (item.following.photo_profile?.startsWith('http') ? item.following.photo_profile : `http://localhost:4000/uploads/${item.following.photo_profile}`))
                         : "https://ui-avatars.com/api/?name=" +
                           item.following.fullname
                     }
